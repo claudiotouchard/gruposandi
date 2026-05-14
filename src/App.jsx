@@ -381,7 +381,7 @@ function Contact() {
           <dl className="contact-info">
             <div className="row">
               <dt className="mono">Estudio</dt>
-              <dd>Calle Tonalá 184<br/>Roma Norte · CDMX 06700</dd>
+              <dd>Calle Tao # 512<br/>Santa Cruz - Bolivia</dd>
             </div>
             <div className="row">
               <dt className="mono">Correo</dt>
@@ -389,7 +389,7 @@ function Contact() {
             </div>
             <div className="row">
               <dt className="mono">Teléfono</dt>
-              <dd>+52 55 4221 0817</dd>
+              <dd>+591 78090304</dd>
             </div>
             <div className="row">
               <dt className="mono">Horario</dt>
@@ -472,7 +472,7 @@ function Footer() {
         <div className="footer-col">
           <h5>Contacto</h5>
           <ul>
-            <li>Tonalá 184<br />Roma Norte, CDMX</li>
+            <li>Calle Tao # 512<br />Santa Cruz - Bolivia</li>
             <li><a href="mailto:info@gruposandi.com">info@gruposandi.com</a></li>
             <li><a href="tel:+59178090304">+52 55 4221 0817</a></li>
           </ul>
