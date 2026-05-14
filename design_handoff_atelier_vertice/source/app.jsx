@@ -101,7 +101,7 @@ function Header({ active, setActive }) {
     <header className={"header" + (scrolled ? " scrolled" : "")}>
       <a href="#top" className="brand" onClick={(e) => { e.preventDefault(); setActive("top"); document.getElementById("top").scrollIntoView({ behavior: "smooth" }); }}>
         <span className="mark">AV</span>
-        <span>Atelier Vértice</span>
+        <span>Sandi Arquitectura</span>
       </a>
       <nav className="nav">
         {links.map(([id, label]) => (
@@ -147,7 +147,7 @@ function Hero() {
       <div className="hero-side">
         <span>Scroll · Descubrir</span>
         <span className="v-rule"></span>
-        <span>Atelier · MMXXVI</span>
+        <span>Sandi · MMXXVI</span>
       </div>
 
       <div className="hero-content">
@@ -206,7 +206,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Arquitectura habitada", "Materia · Luz · Tiempo", "Desde 2008", "México · Iberoamérica", "Diseño con consciencia", "Atelier Vértice"];
+  const items = ["Arquitectura habitada", "Materia · Luz · Tiempo", "Desde 2008", "México · Iberoamérica", "Diseño con consciencia", "Sandi Arquitectura"];
   const loop = [...items, ...items];
   return (
     <div className="marquee">
@@ -291,7 +291,7 @@ function Philosophy() {
           <h2>Lo construido<br /><em>como un acto</em><br />de escucha.</h2>
         </div>
         <p className="lead">
-          Fundado en 2008 por Inés Vallejo y Mateo Aldama, Atelier Vértice opera
+          Fundado en 2008 por Paul Sandi y Claudio Touchard, Grupo Sandi opera
           desde la sospecha de que un edificio se justifica solo si mejora la vida
           de quien lo habita y de quien lo rodea.
         </p>
@@ -385,11 +385,11 @@ function Contact() {
             </div>
             <div className="row">
               <dt className="mono">Correo</dt>
-              <dd>hola@ateliervertice.mx</dd>
+              <dd>info@gruposandi.com</dd>
             </div>
             <div className="row">
               <dt className="mono">Teléfono</dt>
-              <dd>+52 55 4221 0817</dd>
+              <dd>+591 78090304</dd>
             </div>
             <div className="row">
               <dt className="mono">Horario</dt>
@@ -440,8 +440,8 @@ function Footer() {
     <footer className="footer" id="journal">
       <div className="footer-grid">
         <div className="footer-brand">
-          <div className="brand-lg">Atelier<br /><em>Vértice</em></div>
-          <p>Estudio de arquitectura fundado en CDMX. Trabajamos en residencia, cultura, hospitalidad e interiorismo desde una geometría sencilla y una mirada larga al tiempo.</p>
+          <div className="brand-lg">Sandi<br /><em>Arquitectura</em></div>
+          <p>Estudio de arquitectura fundado en Santa Cruz - Bolivia. Trabajamos en residencia, cultura, hospitalidad e interiorismo desde una geometría sencilla y una mirada larga al tiempo.</p>
           <div className="socials">
             <a href="#" aria-label="Instagram"><IG /></a>
             <a href="#" aria-label="LinkedIn"><LI /></a>
@@ -473,13 +473,13 @@ function Footer() {
           <h5>Contacto</h5>
           <ul>
             <li>Tonalá 184<br />Roma Norte, CDMX</li>
-            <li><a href="mailto:hola@ateliervertice.mx">hola@ateliervertice.mx</a></li>
-            <li><a href="tel:+525542210817">+52 55 4221 0817</a></li>
+            <li><a href="mailto:info@gruposandi.com">info@gruposandi.com</a></li>
+            <li><a href="tel:+59178090304">+591 78090304</a></li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <span>© MMXXVI · Atelier Vértice · Estudio de Arquitectura</span>
+        <span>© MMXXVI · Sandi · Arquitectura y Construcción</span>
         <div className="links">
           <a href="#">Aviso de privacidad</a>
           <a href="#">Términos</a>
