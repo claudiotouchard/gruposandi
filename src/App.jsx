@@ -504,8 +504,16 @@ function App() {
         }
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    const observeReveal = () => {
+      document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    };
+    observeReveal();
+
+    const mo = new MutationObserver(() => observeReveal());
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => { io.disconnect(); mo.disconnect(); };
   }, []);
 
   // Update active link based on scroll position
