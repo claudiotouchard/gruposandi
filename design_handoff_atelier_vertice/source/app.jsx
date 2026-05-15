@@ -35,7 +35,7 @@ const HERO_SLIDES = [
   {
     id: 4,
     name: "Torre Liminal",
-    location: "Polanco · CDMX",
+    location: "Polanco · Santa Cruz",
     typology: "Comercial",
     year: "2026",
     area: "12 400 m²",
@@ -53,17 +53,17 @@ const PROJECTS = [
   { id: "p6", name: "Foro Brutalista", year: 2023, place: "Monterrey", cat: "Cultural", span: "span-8", ar: "55%", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1800&q=80" },
   { id: "p7", name: "Estancia Bardo", year: 2023, place: "Oaxaca", cat: "Hospitalidad", span: "span-4", ar: "110%", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" },
   { id: "p8", name: "Casa Ribera", year: 2023, place: "Mérida", cat: "Residencial", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80" },
-  { id: "p9", name: "Loft Industria", year: 2022, place: "CDMX", cat: "Interiorismo", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80" },
+  { id: "p9", name: "Loft Industria", year: 2022, place: "Santa Cruz", cat: "Interiorismo", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80" },
 ];
 
 const CATEGORIES = ["Todos", "Residencial", "Cultural", "Comercial", "Hospitalidad", "Interiorismo"];
 
 const AWARDS = [
-  { yr: "2025", name: "Casa Mirador", who: "AIA Honor Award", where: "Nueva York" },
-  { yr: "2024", name: "Pabellón del Agua", who: "Mención Bienal Iberoamericana", where: "Lisboa" },
-  { yr: "2024", name: "Casa Volcán", who: "Premio Obras Cemex · Plata", where: "Monterrey" },
-  { yr: "2023", name: "Foro Brutalista", who: "Architizer A+ Finalist", where: "Internacional" },
-  { yr: "2023", name: "Estancia Bardo", who: "Dezeen Awards · Longlist", where: "Londres" },
+  { yr: "2025", name: "Catedral Metropolitana", who: "Arquitectura colonial", where: "Centro" },
+  { yr: "2024", name: "Plaza 24 de Septiembre", who: "Patrimonio histórico", where: "Casco Viejo" },
+  { yr: "2024", name: "Biocentro Güembé", who: "Reserva ecológica", where: "Porongo" },
+  { yr: "2023", name: "Parque El Arenal", who: "Espacio público", where: "Zona Sur" },
+  { yr: "2023", name: "Ventura Mall", who: "Arquitectura contemporánea", where: "Equipetrol" },
 ];
 
 // ---------- ICONS ----------
@@ -93,7 +93,7 @@ function Header({ active, setActive }) {
   const links = [
     ["work", "Proyectos"],
     ["studio", "Estudio"],
-    ["awards", "Premios"],
+    ["awards", "Lugares"],
     ["journal", "Diario"],
     ["contact", "Contacto"],
   ];
@@ -339,12 +339,12 @@ function Awards() {
     <section className="awards" id="awards">
       <div className="section-head reveal">
         <div className="left">
-          <span className="mono dim">— 03 / Reconocimientos</span>
-          <h2>Distinciones<br /><em>recientes</em></h2>
+          <span className="mono dim">— 03 / Lugares</span>
+          <h2>Santa Cruz<br /><em>de la Sierra</em></h2>
         </div>
         <p className="lead">
-          La obra ha sido reconocida en circuitos académicos, editoriales y bienales.
-          La crítica nos importa menos que el cliente que vuelve.
+          Lugares emblemáticos de la ciudad que reflejan la identidad cruceña,
+          desde el casco histórico hasta la arquitectura contemporánea.
         </p>
       </div>
       <div className="awards-list reveal">
@@ -416,7 +416,7 @@ function Contact() {
           <div className="field">
             <label>Presupuesto estimado</label>
             <div className="budget-row" style={{ marginTop: 10 }}>
-              {["MX $2–5M", "MX $5–10M", "MX $10–25M", "MX $25M +", "Por definir"].map((b) => (
+              {["$us 15.000–35.000", "$us 45.000–80.000", "$us $90.000–150.000", "$us $200.000 +", "Por definir"].map((b) => (
                 <button type="button" key={b} className={budget === b ? "active" : ""} onClick={() => setBudget(b)}>{b}</button>
               ))}
             </div>
