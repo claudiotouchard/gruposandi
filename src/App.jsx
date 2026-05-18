@@ -4,66 +4,66 @@ import { useState, useEffect, useRef, useMemo } from "react";
 const HERO_SLIDES = [
   {
     id: 1,
-    name: "Casa Mirador",
-    location: "Valle de Bravo · México",
+    name: "Casa Tajibo",
+    location: "Urubó · Santa Cruz",
     typology: "Residencial",
     year: "2025",
-    area: "420 m²",
-    status: "Recién entregado",
+    area: "280 m²",
+    status: "Recién entregada",
     img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80",
   },
   {
     id: 2,
-    name: "Pabellón Ocoyoacac",
-    location: "Estado de México",
-    typology: "Cultural",
+    name: "Vivienda Las Palmas",
+    location: "Barrio Las Palmas · Santa Cruz",
+    typology: "Residencial",
     year: "2024",
-    area: "860 m²",
-    status: "En curaduría",
+    area: "195 m²",
+    status: "Entregada",
     img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2200&q=80",
   },
   {
     id: 3,
-    name: "Casa Aguamiel",
-    location: "San Miguel de Allende",
-    typology: "Residencial",
-    year: "2024",
-    area: "510 m²",
+    name: "Casa de Campo Porongo",
+    location: "Porongo · Santa Cruz",
+    typology: "Residencial / Campo",
+    year: "2025",
+    area: "240 m²",
     status: "En construcción",
     img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=80",
   },
   {
     id: 4,
-    name: "Torre Liminal",
-    location: "Polanco · Santa Cruz",
-    typology: "Comercial",
+    name: "Casa Los Cusis",
+    location: "Zona Norte · Santa Cruz",
+    typology: "Residencial",
     year: "2026",
-    area: "12 400 m²",
+    area: "215 m²",
     status: "En diseño",
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2200&q=80",
+    img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2200&q=80",
   },
 ];
 
 const PROJECTS = [
-  { id: "p1", name: "Casa Horizonte", year: 2025, place: "Tepoztlán", cat: "Residencial", span: "span-7", ar: "62%", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80" },
-  { id: "p2", name: "Refugio Pinar", year: 2025, place: "Valle de Bravo", cat: "Residencial", span: "span-5", ar: "62%", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80" },
-  { id: "p3", name: "Estudio Cantera", year: 2024, place: "Querétaro", cat: "Comercial", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
-  { id: "p4", name: "Pabellón del Agua", year: 2024, place: "Xochitepec", cat: "Cultural", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600210492493-0946911123c4?auto=format&fit=crop&w=1400&q=80" },
-  { id: "p5", name: "Casa Volcán", year: 2024, place: "Puebla", cat: "Residencial", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80" },
-  { id: "p6", name: "Foro Brutalista", year: 2023, place: "Monterrey", cat: "Cultural", span: "span-8", ar: "55%", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1800&q=80" },
-  { id: "p7", name: "Estancia Bardo", year: 2023, place: "Oaxaca", cat: "Hospitalidad", span: "span-4", ar: "110%", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" },
-  { id: "p8", name: "Casa Ribera", year: 2023, place: "Mérida", cat: "Residencial", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80" },
-  { id: "p9", name: "Loft Industria", year: 2022, place: "Santa Cruz", cat: "Interiorismo", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80" },
+  { id: "p1", name: "Casa Jacarandá", year: 2025, place: "Urubó", cat: "Condominios", span: "span-7", ar: "62%", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80" },
+  { id: "p2", name: "Vivienda Sevilla", year: 2025, place: "Zona Norte", cat: "Condominios", span: "span-5", ar: "62%", img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80" },
+  { id: "p3", name: "Casa Portal de la Guardia", year: 2024, place: "Doble Vía a La Guardia", cat: "Urbano", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
+  { id: "p4", name: "Casa Quinta Cotoca", year: 2024, place: "Cotoca", cat: "Campestres", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600210492493-0946911123c4?auto=format&fit=crop&w=1400&q=80" },
+  { id: "p5", name: "Vivienda El Remanso", year: 2024, place: "Zona Norte", cat: "Condominios", span: "span-4", ar: "82%", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80" },
+  { id: "p6", name: "Casa Pradera", year: 2023, place: "Av. Santos Dumont", cat: "Urbano", span: "span-8", ar: "55%", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1800&q=80" },
+  { id: "p7", name: "Casa de Campo Samaipata", year: 2023, place: "Samaipata", cat: "Campestres", span: "span-4", ar: "110%", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" },
+  { id: "p8", name: "Vivienda Don Bosco", year: 2023, place: "Zona Sur", cat: "Urbano", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?auto=format&fit=crop&w=1600&q=80" },
+  { id: "p9", name: "Casa Urb. Paitití", year: 2022, place: "Warnes", cat: "Urbano", span: "span-6", ar: "70%", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80" },
 ];
 
-const CATEGORIES = ["Todos", "Residencial", "Cultural", "Comercial", "Hospitalidad", "Interiorismo"];
+const CATEGORIES = ["Todos", "Urbano", "Condominios", "Campestres"];
 
 const AWARDS = [
-  { yr: "2025", name: "Catedral Metropolitana", who: "Arquitectura colonial", where: "Centro" },
-  { yr: "2024", name: "Plaza 24 de Septiembre", who: "Patrimonio histórico", where: "Casco Viejo" },
-  { yr: "2024", name: "Biocentro Güembé", who: "Reserva ecológica", where: "Porongo" },
-  { yr: "2023", name: "Parque El Arenal", who: "Espacio público", where: "Zona Sur" },
-  { yr: "2023", name: "Ventura Mall", who: "Arquitectura contemporánea", where: "Equipetrol" },
+  { yr: "Zona Norte", name: "Condominios Cerrados", who: "Viviendas modernas y seguras", where: "Sevilla, El Remanso, Av. Banzer y G77" },
+  { yr: "Urubó", name: "Residencias Exclusivas", who: "Diseños personalizados en armonía con el paisaje", where: "Colinas del Urubó, Bosques y alrededores" },
+  { yr: "Zona Oeste", name: "Casas con Galería", who: "Espacios amplios adaptados a la brisa cruceña", where: "Doble Vía a La Guardia y Porongo" },
+  { yr: "Zona Sur", name: "Viviendas Eficientes", who: "Optimización de espacios y presupuestos acotados", where: "Don Bosco y Av. Santos Dumont" },
+  { yr: "Campiña", name: "Quintas y Casas de Campo", who: "Estructuras rústicas y modernas de descanso", where: "Samaipata, Porongo y Cotoca" },
 ];
 
 // ---------- ICONS ----------
@@ -206,7 +206,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["Arquitectura habitada", "Materia · Luz · Tiempo", "Desde 2008", "México · Iberoamérica", "Diseño con consciencia", "Sandi Arquitectura"];
+  const items = ["Hogares llave en mano", "Diseño & Construcción", "Casas con alma cruceña", "Materia · Luz · Confort", "Santa Cruz de la Sierra", "Grupo Sandi"];
   const loop = [...items, ...items];
   return (
     <div className="marquee">
@@ -238,12 +238,11 @@ function Projects() {
     <section id="work">
       <div className="section-head reveal">
         <div className="left">
-          <span className="mono dim">— 01 / Obra seleccionada</span>
-          <h2>Proyectos<br /><em>en curso & archivo</em></h2>
+          <span className="mono dim">— 01 / Hogares construidos</span>
+          <h2>Casas diseñadas<br /><em>para durar y disfrutar</em></h2>
         </div>
         <p className="lead">
-          Una práctica que oscila entre la casa y la ciudad. Construimos lugares
-          donde la materia se vuelve atmósfera y el dibujo, una manera de pensar.
+          Creemos en la arquitectura residencial que se adapta al ritmo de tu familia. Casas construidas con materiales de primera y un diseño fresco e inteligente.
         </p>
       </div>
 
@@ -288,47 +287,44 @@ function Philosophy() {
       <div className="section-head reveal">
         <div className="left">
           <span className="mono dim">— 02 / Filosofía</span>
-          <h2>Lo construido<br /><em>como un acto</em><br />de escucha.</h2>
+          <h2>Casas diseñadas<br /><em>con honestidad</em><br />y sentido común.</h2>
         </div>
         <p className="lead">
-          Fundado en 2008 por Paúl Sandi y Claudio Touchard, Grupo Sandi opera
-          desde la proyeccion de que un edificio se justifica solo si mejora la vida
-          de quien lo habita y de quien lo rodea.
+          Fundado por Paúl Sandi y Claudio Touchard, Grupo Sandi nace con la misión de diseñar y construir casas reales para familias reales en Santa Cruz. Creemos que una casa debe ser cómoda, fresca ante nuestro clima y construida para durar generaciones.
         </p>
       </div>
 
       <div className="philo-grid reveal">
         <p className="philo-quote">
-          “Diseñar es <em>desocupar</em> el lugar de todo aquello que no le pertenece.
-          Lo que queda —la luz, la pendiente, la sombra— ya estaba ahí.”
+          “La casa ideal no es la más grande ni la más costosa, sino aquella que <em>abraza</em> el ritmo diario de la familia y respeta el sol de la tarde cruceña.”
         </p>
         <div className="philo-side">
           <div className="philo-pillars">
             <div className="pillar">
-              <h4>Materia</h4>
-              <p>Trabajamos con concreto, madera y piedra local. La materia nos ata al sitio y al oficio.</p>
+              <h4>Calidad Obra</h4>
+              <p>Construimos con cimientos sólidos e impermeabilización rigurosa, previniendo la humedad y garantizando rajaduras cero.</p>
             </div>
             <div className="pillar">
-              <h4>Luz</h4>
-              <p>Cada proyecto se proyecta dos veces: una en planta y otra en función del recorrido del sol.</p>
+              <h4>Diseño Fresco</h4>
+              <p>Proyectamos pensando en el clima cálido, usando ventilación cruzada y galerías amplias para reducir el aire acondicionado.</p>
             </div>
             <div className="pillar">
-              <h4>Programa</h4>
-              <p>Antes del trazo, una conversación larga. La casa empieza por preguntar cómo vive la familia.</p>
+              <h4>Llave en Mano</h4>
+              <p>Evitamos sorpresas. Te entregamos un presupuesto cerrado y detallado por contrato, respetando cada centavo de tu inversión.</p>
             </div>
             <div className="pillar">
-              <h4>Paisaje</h4>
-              <p>No diseñamos el edificio y el jardín por separado. La arquitectura es paisaje continuado.</p>
+              <h4>Tu Estilo</h4>
+              <p>No imponemos modas. Conversamos a fondo sobre cómo vive tu familia para diseñar el living, los cuartos y la churrasquera ideales.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="stats">
-        <div className="stat"><div className="num">17</div><div className="label">años de práctica continua</div></div>
-        <div className="stat"><div className="num"><em>92</em></div><div className="label">proyectos construidos</div></div>
-        <div className="stat"><div className="num">11</div><div className="label">países donde hemos publicado</div></div>
-        <div className="stat"><div className="num"><em>24</em></div><div className="label">premios y reconocimientos</div></div>
+        <div className="stat"><div className="num">10</div><div className="label">años construyendo hogares</div></div>
+        <div className="stat"><div className="num"><em>48</em></div><div className="label">casas entregadas con éxito</div></div>
+        <div className="stat"><div className="num">100%</div><div className="label">de presupuestos respetados</div></div>
+        <div className="stat"><div className="num"><em>5</em></div><div className="label">años de garantía estructural</div></div>
       </div>
     </section>
   );
@@ -339,12 +335,11 @@ function Awards() {
     <section className="awards" id="awards">
       <div className="section-head reveal">
         <div className="left">
-          <span className="mono dim">— 03 / Lugares</span>
-          <h2>Santa Cruz<br /><em>de la Sierra</em></h2>
+          <span className="mono dim">— 03 / Zonas de Cobertura</span>
+          <h2>Presencia en<br /><em>toda Santa Cruz</em></h2>
         </div>
         <p className="lead">
-          Lugares emblemáticos de la ciudad que reflejan la identidad cruceña,
-          desde el casco histórico hasta la arquitectura contemporánea.
+          Construimos hogares adaptados al entorno y al estilo de vida de cada sector de la ciudad, respetando el clima y la topografía local.
         </p>
       </div>
       <div className="awards-list reveal">
@@ -362,7 +357,7 @@ function Awards() {
 }
 
 function Contact() {
-  const [budget, setBudget] = useState("MX $5–10M");
+  const [budget, setBudget] = useState("$us 65.000–100.000");
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", project: "", message: "" });
   const submit = (e) => {
@@ -402,28 +397,28 @@ function Contact() {
           <div className="field-row">
             <div className="field">
               <label>Nombre</label>
-              <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Inés Vallejo" />
+              <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Inés Suárez" />
             </div>
             <div className="field">
               <label>Correo</label>
-              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="ines@correo.mx" />
+              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="ines@correo.com" />
             </div>
           </div>
           <div className="field">
             <label>Tipo de proyecto</label>
-            <input value={form.project} onChange={(e) => setForm({ ...form, project: e.target.value })} placeholder="Casa de campo en Valle de Bravo, 380 m²" />
+            <input value={form.project} onChange={(e) => setForm({ ...form, project: e.target.value })} placeholder="Casa de 2 plantas en Condominio Sevilla, 180 m²" />
           </div>
           <div className="field">
             <label>Presupuesto estimado</label>
             <div className="budget-row" style={{ marginTop: 10 }}>
-              {["$us 15.000–35.000", "$us 45.000–80.000", "$us $90.000–150.000", "$us $200.000 +", "Por definir"].map((b) => (
+              {["$us 35.000–60.000", "$us 65.000–100.000", "$us 110.000–180.000", "$us 200.000 +", "Por definir"].map((b) => (
                 <button type="button" key={b} className={budget === b ? "active" : ""} onClick={() => setBudget(b)}>{b}</button>
               ))}
             </div>
           </div>
           <div className="field">
             <label>Cuéntanos más</label>
-            <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="El terreno mira al sur, hay un viejo huizache que queremos preservar…" />
+            <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="El terreno tiene 360 m² en la Zona Norte. Queremos preservar un hermoso tajibo que está al fondo y tener una churrasquera amplia..." />
           </div>
           <button type="submit" className={"submit" + (sent ? " sent" : "")}>
             <span>{sent ? "Enviado · gracias" : "Enviar briefing"}</span>
@@ -441,7 +436,7 @@ function Footer() {
       <div className="footer-grid">
         <div className="footer-brand">
           <div className="brand-lg">Sandi<br /><em>Arquitectura</em></div>
-          <p>Estudio de arquitectura fundado en Santa Cruz - Bolivia. Trabajamos en residenciales, cultura, hospitalidad e interiorismo desde una geometría sencilla y una mirada larga al tiempo.</p>
+          <p>Constructora y estudio residencial con base en Santa Cruz de la Sierra - Bolivia. Nos dedicamos a diseñar y construir hogares cómodos, seguros y adaptados al clima de nuestra región.</p>
           <div className="socials">
             <a href="#" aria-label="Instagram"><IG /></a>
             <a href="#" aria-label="LinkedIn"><LI /></a>
@@ -460,13 +455,11 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-col">
-          <h5>Obra</h5>
+          <h5>Hogares</h5>
           <ul>
-            <li><a href="#work">Residencial</a></li>
-            <li><a href="#work">Cultural</a></li>
-            <li><a href="#work">Comercial</a></li>
-            <li><a href="#work">Hospitalidad</a></li>
-            <li><a href="#work">Interiorismo</a></li>
+            <li><a href="#work">Casas de Barrio</a></li>
+            <li><a href="#work">Casas en Condominio</a></li>
+            <li><a href="#work">Quintas y Campo</a></li>
           </ul>
         </div>
         <div className="footer-col">
@@ -474,7 +467,7 @@ function Footer() {
           <ul>
             <li>Calle Tao # 512<br />Santa Cruz - Bolivia</li>
             <li><a href="mailto:info@gruposandi.com">info@gruposandi.com</a></li>
-            <li><a href="tel:+59178090304">+52 55 4221 0817</a></li>
+            <li><a href="tel:+59178090304">+591 780 90304</a></li>
           </ul>
         </div>
       </div>
